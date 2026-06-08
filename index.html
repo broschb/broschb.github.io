@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Broschb Labs LLC — Software Studio & Incubation Lab</title>
+  <meta name="description" content="Broschb Labs LLC is a dedicated tech, software, and incubation hub that experiments, builds, and publishes innovative applications.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-primary: #0b0d11;
+      --bg-secondary: #12151c;
+      --bg-card: #191d26;
+      --text-primary: #e8edf5;
+      --text-secondary: #949dab;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+      --border: #1e2330;
+      --radius: 12px;
+      --max-width: 720px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* --- Header / Navigation --- */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--accent); }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover { color: var(--text-primary); }
+
+    /* --- Hero --- */
+    .hero {
+      padding: 80px 0 60px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span { color: var(--accent); }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    /* --- Section --- */
+    section { padding: 60px 0; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .section-text {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* --- Featured Project Card --- */
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-top: 8px;
+      transition: border-color 0.25s;
+    }
+
+    .project-card:hover { border-color: rgba(59, 130, 246, 0.3); }
+
+    .project-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn:active { transform: translateY(0); }
+
+    .arrow { font-size: 1.1em; line-height: 1; }
+
+    /* --- About --- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    .about-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .about-item h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .about-item p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* --- Divider --- */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* --- Footer --- */
+    footer {
+      padding: 48px 0 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .footer-col a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--accent-hover); }
+
+    .footer-bottom {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-bottom p {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 640px) {
+      .hero { padding: 48px 0 40px; }
+
+      section { padding: 40px 0; }
+
+      .about-grid { grid-template-columns: 1fr; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Broschb<span> Labs</span></a>
+      <a href="mailto:support@thegimme.app" class="nav-link">Contact</a>
+    </nav>
+  </div>
+
+  <div class="container">
+    <header class="hero">
+      <h1>We build<br>software that <span>matters.</span></h1>
+      <p>
+        Broschb Labs is a software studio and incubation lab — we experiment,
+        build, and ship digital tools that solve real problems.
+      </p>
+    </header>
+  </div>
+
+  <hr>
+
+  <section>
+    <div class="container">
+      <p class="section-label">Featured Project</p>
+      <h2 class="section-title">The Gimme AI</h2>
+      <p class="section-text">
+        A golf handicap tracker using WHS handicap rules with Strokes Gained analytics,
+        GPS course selection, and social scorekeeping. Available now on iOS and Android.
+      </p>
+      <div class="project-card">
+        <p class="project-name">The Gimme AI</p>
+        <p class="project-desc">
+          Track your Handicap Index using WHS handicap rules, get PGA-tour level
+          Strokes Gained insights, and connect with friends through digital attestation
+          and peer review — all from a mobile-first scorecard built for the course.
+        </p>
+        <a href="https://thegimme.app/" class="btn" target="_blank" rel="noopener noreferrer">
+          Visit thegimme.app <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <section>
+    <div class="container">
+      <p class="section-label">Our Lab</p>
+      <h2 class="section-title">An incubation environment for ideas.</h2>
+      <p class="section-text">
+        Broschb Labs operates as an umbrella studio for experimenting with new
+        software utilities, tools, and consumer applications. We believe in
+        shipping early, iterating fast, and building things that earn their place
+        in your daily workflow.
+      </p>
+      <div class="about-grid">
+        <div class="about-item">
+          <h3>Experiment</h3>
+          <p>Rapid prototyping and validation of new concepts across mobile and web platforms.</p>
+        </div>
+        <div class="about-item">
+          <h3>Build</h3>
+          <p>Polished, production-grade applications with clean architecture and thoughtful UX.</p>
+        </div>
+        <div class="about-item">
+          <h3>Publish</h3>
+          <p>End-to-end ownership from idea through App Store and Google Play delivery.</p>
+        </div>
+        <div class="about-item">
+          <h3>Iterate</h3>
+          <p>Continuous improvement driven by real user feedback and measurable outcomes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <div class="container">
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>
+            <a href="mailto:support@thegimme.app">contact@broschblabs.com</a>
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Address</h4>
+          <p>
+            3891 West Farrell Lane<br>
+            West Jordan, UT 84088
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Broschb Labs LLC. All rights reserved.</p>
+        <p>Broschb Labs LLC</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
